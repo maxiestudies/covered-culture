@@ -1,0 +1,15 @@
+[Unit]
+Description=Load video to cvlc
+After=network.target
+
+[Service]
+ExecStart=/bin/bash load_video_cli.sh
+WorkingDirectory=/home/pi/scripts
+StandardOutput=file:/home/pi/scripts/videoloader.log
+StandardError=inherit
+Restart=always
+RestartSec=2
+User=pi
+
+[Install]
+WantedBy=multi-user.target

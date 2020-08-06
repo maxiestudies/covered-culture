@@ -1,0 +1,22 @@
+[005c9b28] vlcpulse audio output error: PulseAudio server connection failure: Connection refused
+[005e68d0] dbus interface error: Failed to connect to the D-Bus session daemon: Unable to autolaunch a dbus-daemon without a $DISPLAY for X11
+[005e68d0] main interface error: no suitable interface module
+[0054eb58] main libvlc error: interface "dbus,none" initialization failed
+[005cf450] lua interface error: password not configured
+[005cf450] lua interface: Please specify the password in the preferences.
+[005cf450] main interface error: no suitable interface module
+[0054eb58] main libvlc error: interface "telnet,none" initialization failed
+[005c8030] main interface error: no suitable interface module
+[0054eb58] main libvlc error: interface "globalhotkeys,none" initialization failed
+[005e68d0] [cli] lua interface: Listening on host "0.0.0.0:9999".
+[005c8030] dummy interface: using the dummy interface module...
+[01e3efe0] mmal_codec decoder: VCSM init succeeded: Legacy
+error: XDG_RUNTIME_DIR not set in the environment.
+error: XDG_RUNTIME_DIR not set in the environment.
+[b3605418] gles2 generic error: parent window not available
+[b3604e08] mmal_xsplitter vout display error: Failed to open Xsplitter:opengles2 module
+[b3605418] xcb generic error: window not available
+[b3604e08] mmal_xsplitter vout display error: Failed to open Xsplitter:xcb_x11 module
+[b3952980] mmal_codec decoder: VCSM init succeeded: Legacy
+[b393ed40] mmal_codec decoder: VCSM init succeeded: Legacy
+[01e0cd28] [cli] lua interface: Requested shutdown.

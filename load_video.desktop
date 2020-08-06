@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=video_loader
+Comment=loads the video in vlc player
+Exec=/bin/bash /home/pi/scripts/load_video.sh
+Type=Application
+Encoding=UTF-8
+Terminal=false
+Categories=None;
