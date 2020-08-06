@@ -8,6 +8,7 @@ This repository contains scripts and patches to use one or more raspberry pi's a
 ## General description
 
 -   the script loaded on the patch starts vlc on boot and loads the video but doesn't start the playback. Playback is stopped at the video's last frame until a new "play" command is received. For testing purposes the script loads a test video that comes with the raspbian os.
+-   to play another videos you need to change the path in the script load_video.sh. (and load_video_cli.sh)
 -   you can also control vlc over a telnet connection [port 4212]
 -   you need the full version of the Raspberry Pi OS.
 
