@@ -29,7 +29,7 @@ create a directory called ~/.config/autostart/ and copy the .desktop file there
 
 It is important that the ip-address of your pi stays the same because the address will be hard-coded on the pd patch. Open the dhcp config file and uncomment the static address lines. Make sure that your router allows hosts to set their ip-address. 
 
-    ~ $ sudo nano ætc/dhcpcd.conf
+    ~ $ sudo nano etc/dhcpcd.conf
 
 
 ## on the control computer
