@@ -1,8 +1,35 @@
-#N canvas 57 90 272 591 12;
-#X obj 19 526 netsend -u -b;
-#X msg 19 502 connect localhost 8000;
-#X obj 19 452 list prepend send;
-#X obj 19 476 list trim;
+#N canvas 431 182 521 284 12;
+#X obj 31 61 cnv 15 100 35 empty reaper-canvas Disonnected 6 15 0 14
+-258699 -262144 0;
+#X obj 153 61 cnv 15 100 35 empty pi1-canvas Disonnected 6 15 0 14
+-258699 -262144 0;
+#X obj 31 24 cnv 15 100 35 empty empty Reaper 25 16 0 14 -233017 -66577
+0;
+#X obj 153 24 cnv 15 100 35 empty empty Pi_1 30 16 0 14 -233017 -66577
+0;
+#X obj 273 61 cnv 15 100 35 empty pi2-canvas Disonnected 6 15 0 14
+-258699 -262144 0;
+#X obj 273 24 cnv 15 100 35 empty empty Pi_2 30 16 0 14 -233017 -66577
+0;
+#X obj 393 61 cnv 15 100 35 empty pi3-canvas Disonnected 6 15 0 14
+-258699 -262144 0;
+#X obj 393 24 cnv 15 100 35 empty empty Pi_3 30 16 0 14 -233017 -66577
+0;
+#N canvas 71 68 810 507 master_guts 0;
+#X obj 318 136 t b b;
+#X obj 317 97 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 392 134 t b b;
+#X text 308 67 play;
+#X text 389 70 pause;
+#X obj 392 102 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 567 284 list seek 0;
+#N canvas 36 99 450 564 toreaper 0;
+#X obj 19 506 netsend -u -b;
+#X msg 19 482 connect localhost 8000;
+#X obj 19 432 list prepend send;
+#X obj 19 456 list trim;
 #X obj 19 61 netreceive -u -b;
 #X msg 19 35 listen 9100;
 #X obj 19 85 oscparse;
@@ -10,21 +37,53 @@
 #X obj 19 134 route lastmarker;
 #X obj 19 158 route number;
 #X obj 19 182 route str;
-#X obj 19 427 oscformat -f i action;
-#X msg 19 401 40161;
-#X text 62 399 jump to marker 1;
+#X obj 19 407 oscformat -f i action;
+#X msg 19 381 40161;
+#X text 62 379 jump to marker 1;
 #X obj 19 255 list fromsymbol;
 #X obj 19 205 list prepend symbol;
 #X obj 19 230 list trim;
 #X obj 19 281 sel 50;
-#X obj 19 305 print received;
 #X text 69 280 marker nr 2 (ascii);
-#X msg 19 377 1007;
-#X text 57 377 play;
-#X msg 19 353 1008;
-#X text 57 351 pause;
-#X msg 19 328 1016;
-#X text 54 329 stop;
+#X msg 19 357 1007;
+#X text 57 357 play;
+#X msg 19 333 1008;
+#X text 57 331 pause;
+#X msg 19 308 1016;
+#X text 54 309 stop;
+#X obj 195 233 print;
+#X msg 111 458 disconnect;
+#X obj 228 272 inlet;
+#X obj 19 9 r connect;
+#X obj 204 484 r connect;
+#X obj 228 296 route play pause stop jump;
+#X obj 229 327 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 271 327 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 20 533 s reaper-isconnected;
+#N canvas 0 22 450 300 show 0;
+#X msg 40 167 \; reaper-canvas label Connected \;;
+#X obj 64 127 sel 1;
+#X msg 37 258 \; reaper-canvas label_pos 13 15 \;;
+#X msg 33 347 \; reaper-canvas label Disonnected \;;
+#X obj 63 88 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 34 210 \; reaper-canvas color 16 \;;
+#X msg 35 394 \; reaper-canvas color 13 \;;
+#X msg 29 444 \; reaper-canvas label_pos 6 15 \;;
+#X obj 71 51 inlet;
+#X connect 1 0 0 0;
+#X connect 1 0 5 0;
+#X connect 1 0 2 0;
+#X connect 1 1 3 0;
+#X connect 1 1 6 0;
+#X connect 1 1 7 0;
+#X connect 4 0 1 0;
+#X connect 8 0 4 0;
+#X restore 177 533 pd show;
+#X obj 246 441 r disconnect;
+#X connect 0 0 33 0;
 #X connect 1 0 0 0;
 #X connect 2 0 3 0;
 #X connect 3 0 0 0;
@@ -38,10 +97,81 @@
 #X connect 11 0 2 0;
 #X connect 12 0 11 0;
 #X connect 14 0 17 0;
+#X connect 14 0 25 0;
 #X connect 15 0 16 0;
 #X connect 16 0 14 0;
-#X connect 17 0 18 0;
 #X connect 17 0 12 0;
-#X connect 20 0 11 0;
-#X connect 22 0 11 0;
-#X connect 24 0 11 0;
+#X connect 19 0 11 0;
+#X connect 21 0 11 0;
+#X connect 23 0 11 0;
+#X connect 26 0 0 0;
+#X connect 27 0 30 0;
+#X connect 28 0 5 0;
+#X connect 29 0 1 0;
+#X connect 30 0 31 0;
+#X connect 30 0 19 0;
+#X connect 30 1 32 0;
+#X connect 30 1 21 0;
+#X connect 30 2 23 0;
+#X connect 30 3 12 0;
+#X connect 35 0 26 0;
+#X restore 358 343 pd toreaper;
+#X msg 312 254 play;
+#X msg 355 272 pause;
+#X msg 567 256 list play;
+#X msg 574 315 list pause;
+#X obj 466 135 t b b;
+#X obj 466 103 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 422 277 jump;
+#X text 463 71 jump;
+#X obj 20 39 show pi1;
+#X obj 20 13 show reaper;
+#X obj 20 65 show pi2;
+#X obj 20 91 show pi3;
+#X obj 20 118 show-playback start_playback;
+#X obj 391 38 t b b b;
+#X obj 394 10 r load;
+#X obj 599 27 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 599 47 s disconnect;
+#X obj 572 356 vlc_control pi1 localhost 9999;
+#X obj 573 383 vlc_control pi2 localhost 9998;
+#X obj 572 413 vlc_control pi3 localhost 9997;
+#X connect 0 0 8 0;
+#X connect 0 1 10 0;
+#X connect 1 0 0 0;
+#X connect 2 0 9 0;
+#X connect 2 1 11 0;
+#X connect 5 0 2 0;
+#X connect 6 0 25 0;
+#X connect 6 0 26 0;
+#X connect 6 0 27 0;
+#X connect 8 0 7 0;
+#X connect 9 0 7 0;
+#X connect 10 0 25 0;
+#X connect 10 0 26 0;
+#X connect 10 0 27 0;
+#X connect 11 0 25 0;
+#X connect 11 0 26 0;
+#X connect 11 0 27 0;
+#X connect 12 0 14 0;
+#X connect 12 1 6 0;
+#X connect 13 0 12 0;
+#X connect 14 0 7 0;
+#X connect 21 0 13 0;
+#X connect 21 1 5 0;
+#X connect 21 2 1 0;
+#X connect 22 0 21 0;
+#X connect 23 0 24 0;
+#X restore 190 229 pd master_guts;
+#X obj 41 209 s connect;
+#X obj 45 141 bng 50 250 50 0 empty empty Connect -10 -10 0 16 -257985
+-1 -1;
+#X obj 247 145 tgl 50 0 start_playback empty Start 0 -10 0 18 -258113
+-1 -1 0 1;
+#X obj 324 149 cnv 15 100 35 empty start_playback-canvas Paused 24
+15 0 14 -258699 -262144 0;
+#X obj 138 142 bng 50 250 50 0 load empty Load 5 -10 0 16 -203904 -1
+-1;
+#X connect 10 0 9 0;
